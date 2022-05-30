@@ -20,16 +20,40 @@
     <nav class="navbar navbar-expand navbar-light bg-faded">
       <div class="container">
         <a class="navbar-brand" href="#">Navbar</a>
-        <form class="d-flex my-2 my-lg-0">
-          <input
-            class="form-control me-sm-2"
-            type="text"
-            placeholder="Search"
-          />
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-            Search
+        <div class="dropdown open">
+          <button
+            class="border-0 bg-transparent dropdown-toggle"
+            type="button"
+            id="triggerId"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <img
+              src="https://via.placeholder.com/30"
+              alt=""
+              class="rounded-2"
+            />
           </button>
-        </form>
+          <div class="dropdown-menu" aria-labelledby="triggerId">
+            <button
+              class="dropdown-item"
+              data-bs-toggle="modal"
+              data-bs-target="#modelUserInformation"
+            >
+              Xem thông tin
+            </button>
+            <button
+              class="dropdown-item"
+              href="#"
+              data-bs-toggle="modal"
+              data-bs-target="#modelUserChangePassword"
+            >
+              Đổi mật khẩu
+            </button>
+            <button class="dropdown-item" href="#">Đăng xuất</button>
+          </div>
+        </div>
       </div>
     </nav>
     <main class="py-3">
@@ -176,6 +200,219 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal User Information -->
+        <div
+          class="modal fade"
+          id="modelUserInformation"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="modelTitleId"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Thông tin cá nhân</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body d-flex flex-column gap-2">
+                <div class="form-group d-flex flex-column gap-1">
+                  <!-- Họ và tên -->
+                  <label for="">Họ và tên</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputUserFullName"
+                    placeholder="Họ và tên"
+                    disabled
+                  />
+                </div>
+                <!-- Tên người dùng -->
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="">Tên người dùng</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputUserUsername"
+                    placeholder="Tên người dùng"
+                    disabled
+                  />
+                </div>
+                <!-- Số điện thoại -->
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="">Số điện thoại</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputUserPhone"
+                    placeholder="Số điện thoại"
+                    disabled
+                  />
+                </div>
+                <!-- Email -->
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="">Email</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputUserEmail"
+                    placeholder="Email"
+                    disabled
+                  />
+                </div>
+                <!-- Ngày tháng năm sinh -->
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="">Ngày tháng năm sinh</label>
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="inputUserBirthday"
+                    placeholder="Ngày tháng năm sinh"
+                    disabled
+                  />
+                </div>
+                <!-- Địa chỉ -->
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="">Địa chỉ</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputUserAddress"
+                    placeholder="Địa chỉ"
+                    disabled
+                  />
+                </div>
+                <!-- Trạng thái xác minh -->
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="">Trạng thái xác minh</label>
+                  <select class="form-control" id="inputUserVerified" disabled>
+                    <option value="0">Chưa xác minh</option>
+                    <option value="1">Đã xác minh</option>
+                  </select>
+                </div>
+                <!-- CMND mặt trước -->
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="">CMND mặt trước</label>
+                  <img src="" alt="" id="inputUserIdCardFront" />
+                  <!-- Upload image -->
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="inputUserIdCardFrontUpload"
+                  />
+                </div>
+                <!-- CMND mặt sau -->
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="">CMND mặt sau</label>
+                  <img src="" alt="" id="inputUserIdCardBack" />
+                  <!-- Upload image -->
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="inputUserIdCardBackUpload"
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Huỷ
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="btnNextToDepositConfirm"
+                >
+                  Tiếp theo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal User Change Password -->
+        <div
+          class="modal fade"
+          id="modelUserChangePassword"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="modelTitleId"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Đổi mật khẩu</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body d-flex flex-column gap-2">
+                <div class="form-group d-flex flex-column gap-1">
+                  <!-- Mật khẩu cũ -->
+                  <label for="">Mật khẩu cũ</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputUserOldPassword"
+                    placeholder="Mật khẩu cũ"
+                  />
+                </div>
+                <!-- Mật khẩu mới -->
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="">Mật khẩu mới</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputUserNewPassword"
+                    placeholder="Mật khẩu mới"
+                  />
+                </div>
+                <!-- Nhập lại mật khẩu mới -->
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="">Nhập lại mật khẩu mới</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="inputUserNewPasswordConfirm"
+                    placeholder="Nhập lại mật khẩu mới"
+                  />
+                </div>
+                <span class="text-danger d-none" id="alertUserChangePassword">
+                  Mật khẩu xác nhận không chính xác
+                </span>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Huỷ
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="btnUserChangePassword"
+                >
+                  Đổi mật khẩu
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -404,17 +641,15 @@
                   ></textarea>
                 </div>
                 <div class="form-group d-flex flex-column gap-1">
-                  <label for="inputWithdrawAmountToWithdraw">Số tiền</label>
+                  <label for="inputWithdrawAmount">Số tiền</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="inputWithdrawAmountToWithdraw"
+                    id="inputWithdrawAmount"
                     placeholder="Nhập số tiền"
                   />
-                  <span
-                    class="text-danger d-none"
-                    id="alertWithdrawAmountToWithdraw"
-                    >Số tiền phải là bội của 50,000 đồng</span
+                  <span class="text-danger d-none" id="alertWithdrawAmount"
+                    >Số tiền rút mỗi lần phải là bội số của 50,000 đồng.</span
                   >
                 </div>
                 <!-- Phí rút input disable -->
@@ -450,6 +685,121 @@
                   data-bs-dismiss="modal"
                 >
                   Huỷ
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary"
+                  id="btnNextToWithdrawConfirm"
+                >
+                  Tiếp theo
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Withdraw Confirm -->
+        <div
+          class="modal fade"
+          id="modelWithdrawConfirm"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="modelTitleId"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Xác nhận rút tiền</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body d-flex flex-column gap-2">
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="inputWithdrawConfirmCardNumber">Số thẻ</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputWithdrawConfirmCardNumber"
+                    placeholder="Nhập số thẻ"
+                    disabled
+                  />
+                </div>
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="inputWithdrawConfirmCardExpirationDate"
+                    >Ngày hết hạn</label
+                  >
+                  <input
+                    type="date"
+                    class="form-control"
+                    id="inputWithdrawConfirmCardExpirationDate"
+                    placeholder="Nhập ngày hết hạn"
+                    disabled
+                  />
+                </div>
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="inputWithdrawConfirmCardCodeCVV">Mã CVV</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputWithdrawConfirmCardCodeCVV"
+                    placeholder="Nhập mã CVV"
+                    disabled
+                  />
+                </div>
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="inputWithdrawConfirmNote">Ghi chú</label>
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    id="inputWithdrawConfirmNote"
+                    disabled
+                  ></textarea>
+                </div>
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="inputWithdrawConfirmAmount">Số tiền</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputWithdrawConfirmAmount"
+                    placeholder="Nhập số tiền"
+                    disabled
+                  />
+                </div>
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="inputWithdrawConfirmFee">Phí rút(5%)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputWithdrawConfirmFee"
+                    value=""
+                    disabled
+                  />
+                </div>
+                <div class="form-group d-flex flex-column gap-1">
+                  <label for="inputWithdrawConfirmTotalAmount"
+                    >Tổng số tiền</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputWithdrawConfirmTotalAmount"
+                    value=""
+                    disabled
+                  />
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  id="btnPreviousToWithdraw"
+                >
+                  Quay lại
                 </button>
                 <button type="button" class="btn btn-primary">Rút tiền</button>
               </div>
